@@ -103,8 +103,12 @@ class RestaurantTest {
     public void calculateOrderValue_should_return_sum_of_all_items_value_when_given_list_of_ordered_items(){
 
         List<Item> orderedItems = new ArrayList<Item>();
+        addToRestaurantMenu(restaurant);
+        orderedItems.add(restaurant.getMenu().get(0));
+        orderedItems.add(restaurant.getMenu().get(1));
         Restaurant spiedRestaurant =  Mockito.spy(restaurant);
-        assertEquals("int", spiedRestaurant.calculateOrderValue(orderedItems).getClass().getName());
+        assertEquals("java.lang.Integer", spiedRestaurant.calculateOrderValue(orderedItems).getClass().getName());
+        assertEquals(119 + 269, spiedRestaurant.calculateOrderValue(orderedItems));
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ORDER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

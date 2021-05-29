@@ -65,5 +65,15 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+	
+	public Integer calculateOrderValue(List<Item> listOfItems)
+	{
+		int valueOfOrder = 0;
+		for(Item item : listOfItems)
+		{
+			valueOfOrder += item.getPrice();
+		}
+		return Integer.valueOf(valueOfOrder);
+	}
 
 }
