@@ -89,6 +89,25 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MENU >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ORDER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+    //TDD
+
+    // When given list of ordered item
+    // total cost should be returned.
+    // cost will be sum of cost of individual items
+    // when given empty list should return 0
+
+    @Test
+    public void calculateOrderValue_should_return_sum_of_all_items_value_when_given_list_of_ordered_items(){
+
+        List<Item> orderedItems = new ArrayList<Item>();
+        Restaurant spiedRestaurant =  Mockito.spy(restaurant);
+        assertEquals("int", spiedRestaurant.calculateOrderValue(orderedItems).getClass().getName());
+    }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ORDER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> OTHER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 }
